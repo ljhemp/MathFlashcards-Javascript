@@ -1,0 +1,66 @@
+<html>
+	<head>
+		
+		<title>Math Flashcards!</title> 
+		
+		<script>
+			var num1 = Math.floor(Math.random() * 10);
+			var num2 = Math.floor(Math.random() * 10);
+			var correctAnswer = num1 * num2; 
+			var output;
+		</script>
+		
+	</head>
+	
+	<body>
+		<a href="add.html">Addition</a> |
+		<a href="sub.html">Subtraction</a> |
+		<a href="mult.html">Multiplication</a> |
+		<a href="div.html">Division</a>
+		
+		
+		<h1>Math Flashcards!</h1>
+		<h1>Multiplication</h1>
+		
+		<h1 id="numbers">
+		
+			<script>
+				document.write(num1 + " x " + num2);
+			</script>
+			
+		</h1>
+		
+		<input id="answer">
+		<button type="button" onclick="userAnswer();">Submit Answer</button>
+		<button type="button" onclick="nextCard();">Next Card</button>
+		<p id="output"></p> 
+		
+		<script>
+			function userAnswer(){
+				var userInput = document.getElementById("answer").value;
+			
+				if(isNaN(userInput)) {output = "That is not a number! Please put in a number.";} else {
+			
+					if(userInput == correctAnswer){output = "Correct! " + num1 + " x " + num2 + " = " + userInput;} else{output="Wrong! " + num1 + " x " + num2 + " is NOT " + userInput;}
+				}
+				document.getElementById("output").innerHTML = output;
+			}
+			
+			
+			function nextCard(){
+				document.getElementById("output").innerHTML = "";
+				document.getElementById("answer").value = "";
+				
+				num1 = Math.floor(Math.random() * 10);
+				num2 = Math.floor(Math.random() * 10);
+				correctAnswer = num1 * num2;
+				document.getElementById("numbers").innerHTML = (num1 + " x " + num2)
+			}
+		</script>
+		
+
+	</body>
+
+
+
+</html>
